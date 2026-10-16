@@ -9,7 +9,11 @@
 <body>
     <div class="container">
         <h1>Text Encryption and Decryption Tool</h1>
-        <textarea id="inputText" placeholder="Enter text to encrypt or decrypt"></textarea><br>
+        <label for="inputText">Text or encrypted output</label>
+        <textarea id="inputText" placeholder="Enter text to encrypt or paste encrypted output to decrypt"></textarea><br>
+
+        <label for="passphrase">Passphrase (minimum 8 characters)</label>
+        <input id="passphrase" type="password" minlength="8" autocomplete="new-password" placeholder="Choose or enter your passphrase">
 
         <div class="controls">
             <button onclick="encryptText()">Encrypt</button>
@@ -17,8 +21,9 @@
             <button onclick="clearText()">Clear</button>
         </div>
 
+        <p>Encryption uses AES-GCM with a random salt and IV. Keep your passphrase safe; it cannot be recovered.</p>
         <h2>Result:</h2>
-        <p id="result"></p>
+        <p id="result" role="status" aria-live="polite"></p>
     </div>
     <script src="script.js"></script>
 </body>
